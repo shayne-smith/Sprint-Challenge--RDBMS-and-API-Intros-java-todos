@@ -43,7 +43,7 @@ public class User extends Auditable
         String password,
         String primaryemail)
     {
-        this.username = username;
+        this.username = username.toLowerCase();
         this.password = password;
         this.primaryemail = primaryemail;
     }
