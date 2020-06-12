@@ -24,12 +24,11 @@ public class TodosController
     @PostMapping(value = "/user/{userid}")
     public ResponseEntity<?> addNewTodo(
         @PathVariable
-            String description,
-        @PathVariable
-            long userid
-        ) throws URISyntaxException
+            long userid,
+        @RequestBody
+            Todo todo) throws URISyntaxException
     {
-        Todo newTodo = todoService.save(userid, description);
+        Todo newTodo = todoService.save(userid, todo.getDescription());
 
         // set the location header for the newly created resource
         HttpHeaders responseHeaders = new HttpHeaders();
@@ -44,15 +43,13 @@ public class TodosController
             HttpStatus.CREATED);
     }
 
-    @PatchMapping(value = "/user/{userid}",
+    @PatchMapping(value = "/todo/{todoid}",
         consumes = {"application/json"})
     public ResponseEntity<?> updateTodo(
-        @RequestBody
-            String updatedDescription,
         @PathVariable
-            long userid)
+            long todoid)
     {
-        todoService.update(userid, updatedDescription);
+        todoService.update(todoid);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

@@ -1,6 +1,7 @@
 package com.lambdaschool.sprintchallenge.services;
 
 import com.lambdaschool.sprintchallenge.models.User;
+import com.lambdaschool.sprintchallenge.views.UserCountTodos;
 
 import java.util.List;
 
@@ -14,6 +15,8 @@ public interface UserService
     User save(User user);
 
     void delete(long id);
+
+    List<UserCountTodos> findIncompleteTodos();
 
 //    void deleteTodo(long userid, long todoid);
 

@@ -27,14 +27,13 @@ public class TodoServiceImpl implements TodoService
     @Transactional
     @Override
     public Todo update(
-        long todoid,
-        String description)
+        long todoid)
     {
         if (todorepos.findById(todoid)
             .isPresent())
         {
             Todo todo = findTodoById(todoid);
-            todo.setDescription(description);
+            todo.setCompleted(true);
             return todorepos.save(todo);
         } else
         {

@@ -3,6 +3,7 @@ package com.lambdaschool.sprintchallenge.services;
 import com.lambdaschool.sprintchallenge.models.Todo;
 import com.lambdaschool.sprintchallenge.models.User;
 import com.lambdaschool.sprintchallenge.repository.UserRepository;
+import com.lambdaschool.sprintchallenge.views.UserCountTodos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,6 +30,12 @@ public class UserServiceImpl implements UserService
     {
         return userrepos.findById(id)
             .orElseThrow(() -> new EntityNotFoundException("User id " + id + " not found!"));
+    }
+
+    public List<UserCountTodos> findIncompleteTodos()
+    {
+        List<UserCountTodos> incomplete = (List<UserCountTodos>) userrepos.checkIncompleteTodos();
+        return incomplete;
     }
 
     @Override

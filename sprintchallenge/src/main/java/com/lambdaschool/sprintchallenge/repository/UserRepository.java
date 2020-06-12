@@ -8,9 +8,15 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 public interface UserRepository extends CrudRepository<User, Long>
+
+    // SELECT user.username, COUNT(user.todos) as count
+    // FROM users u
+    // LEFT JOIN todos t
+    // ORDER BY user.username
+
 {
-    @Query(value = "SELECT user.username, count(*) as count FROM users u JOIN todos t ON u.userid = t.userid WHERE !user.getTodos().isCompleted AND user.getTodos().size() > 0 ORDER BY u.username", nativeQuery = true)
-    UserCountTodos checkCompletedTodos();
+    @Query(value = "SELECT COUNT(*) as todocount FROM users u JOIN todos t", nativeQuery = true)
+    UserCountTodos checkIncompleteTodos();
 
     @Transactional
     @Modifying

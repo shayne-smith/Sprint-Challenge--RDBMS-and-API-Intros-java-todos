@@ -2,6 +2,7 @@ package com.lambdaschool.sprintchallenge.controllers;
 
 import com.lambdaschool.sprintchallenge.models.User;
 import com.lambdaschool.sprintchallenge.services.UserService;
+import com.lambdaschool.sprintchallenge.views.UserCountTodos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -68,10 +69,19 @@ public class UserController
     @DeleteMapping(value = "/userid/{userid}")
     public ResponseEntity<?> deleteUserById(
         @PathVariable
-            long id)
+            long userid)
     {
-        userService.delete(id);
+        userService.delete(userid);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/users/todos",
+        produces = {"application/json"})
+    public ResponseEntity<?> getIncompleteTodos()
+    {
+        List<UserCountTodos> u = userService.findIncompleteTodos();
+        return new ResponseEntity<>(u,
+            HttpStatus.OK);
     }
 
 }

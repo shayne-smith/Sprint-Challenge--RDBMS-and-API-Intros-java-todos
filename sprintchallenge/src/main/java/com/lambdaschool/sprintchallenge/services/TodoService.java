@@ -6,7 +6,7 @@ public interface TodoService
 {
     Todo save(long userid, String description);
 
-    Todo update(long id, String description);
+    Todo update(long id);
 
     Todo findTodoById(long id);
 
