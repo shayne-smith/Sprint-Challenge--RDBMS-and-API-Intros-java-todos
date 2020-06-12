@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -28,7 +27,8 @@ public class TodosController
         @RequestBody
             Todo todo) throws URISyntaxException
     {
-        Todo newTodo = todoService.save(userid, todo.getDescription());
+        Todo newTodo = todoService.save(userid,
+            todo.getDescription());
 
         // set the location header for the newly created resource
         HttpHeaders responseHeaders = new HttpHeaders();

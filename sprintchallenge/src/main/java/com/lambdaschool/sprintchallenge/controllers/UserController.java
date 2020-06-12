@@ -77,10 +77,10 @@ public class UserController
 
     @GetMapping(value = "/users/todos",
         produces = {"application/json"})
-    public ResponseEntity<?> getIncompleteTodos()
+    public ResponseEntity<?> getUserCountTodos()
     {
-        List<UserCountTodos> u = userService.findIncompleteTodos();
-        return new ResponseEntity<>(u,
+        List<UserCountTodos> myUsers = userService.getUserCountTodos();
+        return new ResponseEntity<>(myUsers,
             HttpStatus.OK);
     }
 

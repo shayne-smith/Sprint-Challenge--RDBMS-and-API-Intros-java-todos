@@ -16,10 +16,10 @@ public interface UserService
 
     void delete(long id);
 
-    List<UserCountTodos> findIncompleteTodos();
+    List<UserCountTodos> getUserCountTodos();
 
-//    void deleteTodo(long userid, long todoid);
+    //    void deleteTodo(long userid, long todoid);
 
-//    void addTodo(long userid, long todoid);
+    //    void addTodo(long userid, long todoid);
 
 }

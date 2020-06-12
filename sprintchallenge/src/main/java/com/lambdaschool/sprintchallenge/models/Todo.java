@@ -84,7 +84,8 @@ public class Todo extends Auditable
         this.user = user;
     }
 
-    public Date getCreateddate() {
+    public Date getCreateddate()
+    {
         return createddate;
     }
 }

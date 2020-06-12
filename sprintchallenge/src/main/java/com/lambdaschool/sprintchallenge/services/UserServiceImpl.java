@@ -32,10 +32,10 @@ public class UserServiceImpl implements UserService
             .orElseThrow(() -> new EntityNotFoundException("User id " + id + " not found!"));
     }
 
-    public List<UserCountTodos> findIncompleteTodos()
+    @Override
+    public List<UserCountTodos> getUserCountTodos()
     {
-        List<UserCountTodos> incomplete = (List<UserCountTodos>) userrepos.checkIncompleteTodos();
-        return incomplete;
+        return userrepos.getUserTodos();
     }
 
     @Override
@@ -81,7 +81,6 @@ public class UserServiceImpl implements UserService
 
         return userrepos.save(newUser);
     }
-
 
 
 }
