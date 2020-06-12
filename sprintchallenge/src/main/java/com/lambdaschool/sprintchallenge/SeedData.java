@@ -1,8 +1,8 @@
-package com.lambdaschool.todos;
+package com.lambdaschool.sprintchallenge;
 
-import com.lambdaschool.todos.models.Todos;
-import com.lambdaschool.todos.models.User;
-import com.lambdaschool.todos.services.UserService;
+import com.lambdaschool.sprintchallenge.models.Todo;
+import com.lambdaschool.sprintchallenge.models.User;
+import com.lambdaschool.sprintchallenge.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -23,10 +23,10 @@ public class SeedData implements CommandLineRunner
             "password",
             "admin@lambdaschool.local");
         u1.getTodos()
-            .add(new Todos(u1,
+            .add(new Todo(u1,
                 "Give Joe access rights"));
         u1.getTodos()
-            .add(new Todos(u1,
+            .add(new Todo(u1,
                 "Change the color of the home page"));
 
         userService.save(u1);
@@ -35,13 +35,13 @@ public class SeedData implements CommandLineRunner
             "1234567",
             "cinnamon@lambdaschool.local");
         u2.getTodos()
-            .add(new Todos(u2,
+            .add(new Todo(u2,
                 "Take a nap"));
         u2.getTodos()
-            .add(new Todos(u2,
+            .add(new Todo(u2,
                 "Rearrange my hutch"));
         u2.getTodos()
-            .add(new Todos(u2,
+            .add(new Todo(u2,
                 "Groom my fur"));
         userService.save(u2);
 
@@ -49,7 +49,7 @@ public class SeedData implements CommandLineRunner
             "ILuvM4th!",
             "barnbarn@lambdaschool.local");
         u3.getTodos()
-            .add(new Todos(u3,
+            .add(new Todo(u3,
                 "Rearrange my hutch"));
         userService.save(u3);
 
