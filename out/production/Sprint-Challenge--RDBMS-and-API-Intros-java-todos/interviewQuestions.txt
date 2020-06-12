@@ -1,0 +1,18 @@
+1) Explain what an RDBMS is including details the parts of its databases.
+
+A Relational Database Management System is the most common type of database management system. It's a server that manages 1 or more databases and is used to store persistent data. Each database is made up of tables (classes), columns (fields), and rows (objects).
+
+2) What are CRUD Operations and how do they relate to SQL and Http Methods?
+
+Create, read, update, delete are the operations. SQL is the language used to create, read, update, and delete data in a database. Http methods do the same thing but with Http requests sent across the internet to endpoints.
+
+3) What are examples of relationships between tables?
+
+@OneToMany
+@ManyToMany
+@ManyToOne
+
+4) Explain the uses and differences of Spring JPA, Spring Data, and Hibernate.
+
+The Spring JPA is part of the larger Spring Data family and it makes it easy to implement JPA based repositories. Spring JPA helps query databases efficiently and filter the data we want. Srping data is a high-level, umbrella project meant to unify and ease access to different kinds of persistence stores, both relational and NoSQL data stores. Hibernate is an ORN, Object-relational mapping tool/framework. It provides a framework for mapping an object-oriented domain model to a relational database.
+
